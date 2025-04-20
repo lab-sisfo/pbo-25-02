@@ -1,8 +1,8 @@
-package pbo25.week_4.utils;
+package week_4.utils;
 
 public class StringUtils {
     /*
-     TODO
+     * TODO
      * Buatlah sebuah method static yang akan
      * mengembalikan nickName berdasarkan fullName yang diberikan
      * aturan pembuatan nickName adalah :
@@ -12,4 +12,12 @@ public class StringUtils {
      * fullName
      * (ex: FullName = Eurico Devon, maka NickName = Devon)
      */
+
+    public static String getNickName(String nickname) {
+        String[] splitNickname = nickname.split(" ");
+        if (splitNickname.length > 1) {
+            return splitNickname[splitNickname.length - 1];
+        }
+        return splitNickname[0];
+    }
 }

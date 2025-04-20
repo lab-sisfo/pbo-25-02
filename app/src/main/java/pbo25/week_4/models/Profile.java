@@ -1,4 +1,4 @@
-package pbo25.week_4.models;
+package week_4.models;
 
 public class Profile {
     /*
@@ -6,4 +6,11 @@ public class Profile {
      * Tambahkan attribute, method, atau constructor
      * yang dibutuhkan di kelas user
      */
+    public User user;
+    public String hobby, fullName, nickname;
+    public int age;
+
+    public Profile(User user) {
+        this.user = user;
+    }
 }

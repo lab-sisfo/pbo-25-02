@@ -1,10 +1,10 @@
-package pbo25.week_4;
+package week_4;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import pbo25.week_4.models.Profile;
-import pbo25.week_4.models.User;
-import pbo25.week_4.utils.StringUtils;
+import week_4.models.Profile;
+import week_4.models.User;
+import week_4.utils.StringUtils;
 
 public class Main {
     private static ArrayList<User> listUser = new ArrayList<>();
@@ -63,6 +63,10 @@ public class Main {
              * Jika ada ganti userIndex dengan Index dari User Tersebut, kemudian hentikan
              * perulangan
              */
+            if (listUser.get(i).username.equals(username)) {
+                userIndex = i;
+                break;
+            }
         }
         // Saat userIndex tidak sama dengan -1 atau userIndexnya ditemukan
         if (userIndex != -1) {
@@ -77,6 +81,7 @@ public class Main {
              * sama dengan password yang diinput sebelumnya, kemudian simpan
              * hasilnya di variabel isPasswordMatch
              */
+            Boolean isPasswordMatch = listUser.get(userIndex).getPassword().equals(password);
 
             // Jika passwordnya sama maka berhasil login
             if (isPasswordMatch) {
@@ -86,11 +91,16 @@ public class Main {
                  * panggil method showDetailUser dan kirimkan data Profile User yang login
                  * 
                  */
+                showDetailUser(listUserProfile.get(userIndex));
+
                 System.exit(0);
             } else {
                 // saat password salah akan menampikan password salah
                 System.out.println("Password Salah");
             }
+        } else {
+            System.out.println("Username salah");
+            return;
         }
     }
 
@@ -111,12 +121,13 @@ public class Main {
          * username dan password yang diinput sebelumnya secara langsung
          * saat instance User
          */
+        User user = new User(username, password);
 
         /*
          * TODO
          * Buatlah atau Instance objek Profile baru
          */
-        Profile profile = new Profile();
+        Profile profile = new Profile(user);
 
         // Menginput Data Profile
         System.out.println("Nama Lengkap");
@@ -136,6 +147,9 @@ public class Main {
          * di Instance sebelumnya. Nilai ini diperoleh dari data profile yang
          * diinput sebelumnya
          */
+        profile.fullName = fullName;
+        profile.age = age;
+        profile.hobby = hobby;
 
         /*
          * TODO
@@ -143,6 +157,7 @@ public class Main {
          * Nilai ini diperoleh menggunakan static method yang dibuat di class
          * StringUtils, dengan mengirimkan fullName yang diinput sebelumnya
          */
+        profile.nickname = StringUtils.getNickName(fullName);
 
         // Menambahkan user yang dibuat ke list user
         listUser.add(user);
@@ -158,5 +173,12 @@ public class Main {
          * TODO *
          * Tampilkan semua data profile user yang login
          */
+        System.out.println("==================");
+        System.out.println("SELAMAT DATANG !!");
+        System.out.println("==================");
+        System.out.println("Nama Lengkap : " + profile.fullName);
+        System.out.println("Nama Panggilan : " + profile.nickname);
+        System.out.println("Umur : " + profile.age);
+        System.out.println("Hobby : " + profile.hobby);
     }
 }
