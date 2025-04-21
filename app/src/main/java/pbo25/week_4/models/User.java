@@ -11,14 +11,13 @@ public class User {
     private String password;
     private Profile profile; // Relasi ke kelas Profile
 
-    public User(){
+    public User() {
 
     }
 
-    public User(String username, String password, Profile profile) {
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.profile = profile; 
     }
 
     public String getUsername() {
@@ -31,5 +30,9 @@ public class User {
 
     public Profile getProfile() {
         return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
     }
 }

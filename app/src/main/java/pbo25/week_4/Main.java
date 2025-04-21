@@ -70,11 +70,11 @@ public class Main {
         }
 
         // Saat userIndex tidak sama dengan -1 atau userIndexnya ditemukan
-            if (userIndex != -1) {
-                // Menginput Password
-                System.out.println("Password");
-                System.out.print("> ");
-                String password = sc.nextLine();
+        if (userIndex != -1) {
+            // Menginput Password
+            System.out.println("Password");
+            System.out.print("> ");
+            String password = sc.nextLine();
 
             /*
              * TODO
@@ -106,37 +106,105 @@ public class Main {
         System.out.println("REGISTER");
 
         // Menginput username dan password
-        System.out.println("Username");
-        System.out.print("> ");
-        String username = sc.nextLine();
-        System.out.println("Password");
-        System.out.print("> ");
-        String password = sc.nextLine();
+        String username = "";
+        while (true) {
+            System.out.println("Username");
+            System.out.print("> ");
+            username = sc.nextLine();
+
+            // Cek apakah username sudah ada
+            boolean thereisUsername = false;
+            for (User user : listUser) {
+                if (user.getUsername().equals(username)) {
+                    thereisUsername = true;
+                    break;
+                }
+            }
+
+            if (thereisUsername) {
+                System.out.println("Username sudah digunakan. Silahkan masukkan username lain!!");
+            } else if (username.isEmpty()) {
+                System.out.println("Username tidak boleh kosong. Silahkan masukkan username!!");
+            } else {
+                break; // Username valid dan belum digunakan
+            }
+        }
+
+        String password = "";
+        while (true) {
+            System.out.println("Password");
+            System.out.print("> ");
+            password = sc.nextLine().trim(); // Trim untuk menghapus spasi di awal dan akhir
+
+            if (password.isEmpty()) {
+                System.out.println("Silahkan masukkan password yang benar!!");
+            } else if (password.length() < 8) {
+                System.out.println("Password harus lebih dari 8 karakter!");
+            } else {
+                // Jika password valid, keluar dari loop
+                break;
+            }
+        }
         /*
          * TODO
          * Buatlah atau Instance objek User baru, dan tambahkan
          * username dan password yang diinput sebelumnya secara langsung
          * saat instance User
          */
-
+        User newUser = new User(username, password);
         /*
          * TODO
          * Buatlah atau Instance objek Profile baru
          */
         Profile profile = new Profile();
-        User newUser = new User(username, password, profile);
+        newUser.setProfile(profile);
 
         // Menginput Data Profile
-        System.out.println("Nama Lengkap");
-        System.out.print("> ");
-        String fullName = sc.nextLine();
-        System.out.println("Umur");
-        System.out.print("> ");
-        int age = sc.nextInt();
-        sc.nextLine();
-        System.out.println("Hobby");
-        System.out.print("> ");
-        String hobby = sc.nextLine();
+        String fullName = "";
+        while (true) {
+            System.out.println("Nama Lengkap");
+            System.out.print("> ");
+            fullName = sc.nextLine();
+            if (fullName.isEmpty()) {
+                System.out.println("Nama lengkap tidak boleh kosong. Silahkan masukkan nama anda!!");
+            } else {
+                break;
+            }
+        }
+
+        int age = 0;
+        while (true) {
+            System.out.println("Umur");
+            System.out.print("> ");
+            String input = sc.nextLine().trim(); // Ambil input sebagai string dan trim spasi
+
+            if (input.isEmpty()) {
+                System.out.println("Umur tidak boleh kosong. Silahkan masukkan umur anda!!.");
+            } else {
+                try {
+                    age = Integer.parseInt(input); // Konversi kembali inputan ke integer
+                    if (age <= 0) {
+                        System.out.println("Umur harus lebih dari 0. Silahkan coba lagi!!");
+                    } else {
+                        break;
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Input tidak valid. Silahkan masukkan angka untuk umur!!");
+                }
+            }
+        }
+
+        String hobby = "";
+        while (true) {
+            System.out.println("Hobby");
+            System.out.print("> ");
+            hobby = sc.nextLine();
+            if (hobby.isEmpty()) {
+                System.out.println("Hobby tidak boleh kosong. Silahkan masukkan hobby anda!!");
+            } else {
+                break;
+            }
+        }
 
         /*
          * TODO
