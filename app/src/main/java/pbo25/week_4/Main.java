@@ -49,8 +49,8 @@ public class Main {
         // Menginput Username dan Menyimpannya di attribute username;
         System.out.println("Masukkan Username");
         System.out.print("> ");
+        String username = sc.nextLine();
 
-        String username = sc.next();
         // Membuat variabel userIndex yang mana nanti akan menampung index dari user
         int userIndex = -1;
         for (int i = 0; i < listUser.size(); i++) {
@@ -63,13 +63,18 @@ public class Main {
              * Jika ada ganti userIndex dengan Index dari User Tersebut, kemudian hentikan
              * perulangan
              */
+            if (listUser.get(i).getUsername().equals(username)) {
+                userIndex = i;
+                break; // Hentikan perulangan jika username ditemukan
+            }
         }
+
         // Saat userIndex tidak sama dengan -1 atau userIndexnya ditemukan
-        if (userIndex != -1) {
-            // Menginput Password
-            System.out.println("Password");
-            System.out.print("> ");
-            String password = sc.next();
+            if (userIndex != -1) {
+                // Menginput Password
+                System.out.println("Password");
+                System.out.print("> ");
+                String password = sc.nextLine();
 
             /*
              * TODO
@@ -77,6 +82,7 @@ public class Main {
              * sama dengan password yang diinput sebelumnya, kemudian simpan
              * hasilnya di variabel isPasswordMatch
              */
+            boolean isPasswordMatch = listUser.get(userIndex).getPassword().equals(password);
 
             // Jika passwordnya sama maka berhasil login
             if (isPasswordMatch) {
@@ -86,6 +92,7 @@ public class Main {
                  * panggil method showDetailUser dan kirimkan data Profile User yang login
                  * 
                  */
+                showDetailUser(listUser.get(userIndex).getProfile());
                 System.exit(0);
             } else {
                 // saat password salah akan menampikan password salah
@@ -111,6 +118,7 @@ public class Main {
          * username dan password yang diinput sebelumnya secara langsung
          * saat instance User
          */
+        User newUser = new User(username, password);
 
         /*
          * TODO
@@ -136,6 +144,9 @@ public class Main {
          * di Instance sebelumnya. Nilai ini diperoleh dari data profile yang
          * diinput sebelumnya
          */
+        profile.setFullName(fullName);
+        profile.setAge(age);
+        profile.setHobby(hobby);
 
         /*
          * TODO
@@ -143,9 +154,11 @@ public class Main {
          * Nilai ini diperoleh menggunakan static method yang dibuat di class
          * StringUtils, dengan mengirimkan fullName yang diinput sebelumnya
          */
+        profile.setNickName(StringUtils.generateNickName(fullName));
+
 
         // Menambahkan user yang dibuat ke list user
-        listUser.add(user);
+        listUser.add(newUser);
         // Menambahkan profile user yang dibuat ke list profile
         listUserProfile.add(profile);
         System.out.println("-------------------------");
@@ -158,5 +171,13 @@ public class Main {
          * TODO *
          * Tampilkan semua data profile user yang login
          */
+        System.out.println("Berhasil Login");
+        System.out.println("========================");
+        System.out.println("SELAMAT DATANG !!");
+        System.out.println("========================");
+        System.out.println("Nama Lengkap: " + profile.getFullName());
+        System.out.println("Nama Panggilan: " + profile.getNickName());
+        System.out.println("Umur: " + profile.getAge());
+        System.out.println("Hobby: " + profile.getHobby());
     }
 }
