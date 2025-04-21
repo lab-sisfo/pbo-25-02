@@ -118,13 +118,13 @@ public class Main {
          * username dan password yang diinput sebelumnya secara langsung
          * saat instance User
          */
-        User newUser = new User(username, password);
 
         /*
          * TODO
          * Buatlah atau Instance objek Profile baru
          */
         Profile profile = new Profile();
+        User newUser = new User(username, password, profile);
 
         // Menginput Data Profile
         System.out.println("Nama Lengkap");
@@ -156,7 +156,6 @@ public class Main {
          */
         profile.setNickName(StringUtils.generateNickName(fullName));
 
-
         // Menambahkan user yang dibuat ke list user
         listUser.add(newUser);
         // Menambahkan profile user yang dibuat ke list profile
@@ -171,7 +170,6 @@ public class Main {
          * TODO *
          * Tampilkan semua data profile user yang login
          */
-        System.out.println("Berhasil Login");
         System.out.println("========================");
         System.out.println("SELAMAT DATANG !!");
         System.out.println("========================");
