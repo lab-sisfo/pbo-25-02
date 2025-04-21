@@ -22,7 +22,7 @@ public class StringUtils {
         if (kata.length == 1) {
             return kata[0];
         } else {
-            return kata[1]; // Mengembalikan nama belakang
+            return kata[1]; // Mengembalikan nama kedua
         }
     }
 }
