@@ -1,8 +1,19 @@
-package pbo25.week_2;
+class Cuboid {
+    double height;
+    double width;
+    double length;
+
+    double getVolume() {
+        return height * width * length;
+    }
+}
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("test");
+        Cuboid cuboid = new Cuboid();
+        cuboid.height = 15.0;
+        cuboid.width = 10.0;
+        cuboid.length = 30.0;
+        System.out.printf("Volume = %.2f", cuboid.getVolume());
     }
-    
 }
