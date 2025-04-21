@@ -1,10 +1,8 @@
-package week_4;
-
 import java.util.ArrayList;
 import java.util.Scanner;
-import week_4.models.Profile;
-import week_4.models.User;
-import week_4.utils.StringUtils;
+import models.Profile;
+import models.User;
+import utils.StringUtils;
 
 public class Main {
     private static ArrayList<User> listUser = new ArrayList<>();
@@ -51,6 +49,13 @@ public class Main {
         System.out.print("> ");
 
         String username = sc.next();
+
+        while (username.isEmpty()) {
+            System.out.println("ERROR: Tolong Ketik Username");
+            System.out.print("> ");
+            username = sc.next();
+        }
+
         // Membuat variabel userIndex yang mana nanti akan menampung index dari user
         int userIndex = -1;
         for (int i = 0; i < listUser.size(); i++) {
@@ -74,6 +79,12 @@ public class Main {
             System.out.println("Password");
             System.out.print("> ");
             String password = sc.next();
+
+            while (password.length() < 8) {
+                System.out.println("ERROR: Password Kurang Dari 8 Karakter");
+                System.out.print("> ");
+                password = sc.next();
+            }
 
             /*
              * TODO
@@ -104,6 +115,24 @@ public class Main {
         }
     }
 
+    private static boolean usernameTerpakai(String username) {
+        for (User user : listUser) {
+            if (user.username.equals(username)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean passwordTerpakai(String password) {
+        for (User user : listUser) {
+            if (user.getPassword().equals(password)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private static void showRegisterMenu() {
         System.out.println("-------------------------");
         System.out.println("REGISTER");
@@ -112,9 +141,40 @@ public class Main {
         System.out.println("Username");
         System.out.print("> ");
         String username = sc.nextLine();
+
+        while (username.isEmpty() || usernameTerpakai(username)) {
+            if (username.isEmpty()) {
+                System.out.println("ERROR: Tolong Ketik Username");
+            }
+
+            if (usernameTerpakai(username)) {
+                System.out.println("ERROR: Password Tidak Tersedia");
+
+                System.out.println("Ketik Ulang Username");
+            }
+
+            System.out.print("> ");
+            username = sc.nextLine();
+        }
+
         System.out.println("Password");
         System.out.print("> ");
         String password = sc.nextLine();
+
+        while (password.length() < 8 || passwordTerpakai(password)) {
+            if (password.length() < 8) {
+                System.out.println("ERROR: Password Kurang Dari 8 Karakter");
+            }
+
+            if (passwordTerpakai(password)) {
+                System.out.println("ERROR: Password Tidak Tersedia");
+                System.out.println("Ketik Ulang Password");
+            }
+
+            System.out.print("> ");
+            password = sc.nextLine();
+        }
+
         /*
          * TODO
          * Buatlah atau Instance objek User baru, dan tambahkan
@@ -133,14 +193,32 @@ public class Main {
         System.out.println("Nama Lengkap");
         System.out.print("> ");
         String fullName = sc.nextLine();
+        while (fullName.isEmpty()) {
+            System.out.println("ERROR: Tolong Ketik Nama Lengkap");
+
+            System.out.print("> ");
+            fullName = sc.nextLine();
+        }
         System.out.println("Umur");
         System.out.print("> ");
-        int age = sc.nextInt();
+        int age = 0;
+
+        try {
+            age = sc.nextInt();
+        } catch (Exception e) {
+            System.out.println("ERROR: Umur Tidak Valid");
+            System.exit(0);
+        }
+
         sc.nextLine();
         System.out.println("Hobby");
         System.out.print("> ");
         String hobby = sc.nextLine();
-
+        while (hobby.isEmpty()) {
+            System.out.println("ERROR: Tolong Ketik Hobby");
+            System.out.print("> ");
+            hobby = sc.nextLine();
+        }
         /*
          * TODO
          * Berikan nilai fullName, age, dan hobby ke objek profile yang telah

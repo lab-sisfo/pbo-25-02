@@ -1,4 +1,4 @@
-package week_4.models;
+package models;
 
 public class Profile {
     /*

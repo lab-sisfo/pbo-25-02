@@ -1,4 +1,4 @@
-package week_4.utils;
+package utils;
 
 public class StringUtils {
     /*
@@ -16,7 +16,7 @@ public class StringUtils {
     public static String getNickName(String nickname) {
         String[] splitNickname = nickname.split(" ");
         if (splitNickname.length > 1) {
-            return splitNickname[splitNickname.length - 1];
+            return splitNickname[1];
         }
         return splitNickname[0];
     }
