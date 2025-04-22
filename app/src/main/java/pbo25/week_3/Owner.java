@@ -1,3 +1,5 @@
+package pbo25.week_3;
+
 public class Owner {
     String namaOwner;
     String alamatOwner;

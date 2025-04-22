@@ -1,3 +1,5 @@
+package pbo25.week_2.nomor_1;
+
 public class Manusia{
     private String name;
     int age;
