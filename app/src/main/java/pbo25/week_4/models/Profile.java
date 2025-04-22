@@ -1,4 +1,4 @@
-package models;
+package pbo25.week_4.models;
 
 public class Profile {
     /*

@@ -1,3 +1,5 @@
+package pbo25.week_2;
+
 public class No1 {
     public static void main(String[] args) {
         Person person = new Person();

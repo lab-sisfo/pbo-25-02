@@ -1,3 +1,5 @@
+package pbo25.week_2;
+
 class Produk {
     String id, nama;
     int harga, stok;

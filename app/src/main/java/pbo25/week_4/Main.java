@@ -1,8 +1,10 @@
+package pbo25.week_4;
+
 import java.util.ArrayList;
 import java.util.Scanner;
-import models.Profile;
-import models.User;
-import utils.StringUtils;
+import pbo25.week_4.models.Profile;
+import pbo25.week_4.models.User;
+import pbo25.week_4.utils.StringUtils;
 
 public class Main {
     private static ArrayList<User> listUser = new ArrayList<>();
