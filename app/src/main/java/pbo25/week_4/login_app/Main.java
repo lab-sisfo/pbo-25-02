@@ -1,10 +1,10 @@
-package login_app;
+package pbo25.week_4.login_app;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import login_app.models.Profile;
-import login_app.models.User;
-import login_app.utils.StringUtils;
+import pbo25.week_4.login_app.models.Profile;
+import pbo25.week_4.login_app.models.User;
+import pbo25.week_4.login_app.utils.StringUtils;
 
 public class Main {
     private static ArrayList<User> listUser = new ArrayList<>();
@@ -51,7 +51,7 @@ public class Main {
 
         int userIndex = -1;
         for (int i = 0; i < listUser.size(); i++) {
-            if (listUser.get(i).getUsername().equals(username)) {
+            if (listUser.get(i).getUsername().equals(username)) {//TODO
                 userIndex = i;
                 break;
             }

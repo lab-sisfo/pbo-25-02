@@ -1,3 +1,5 @@
+package pbo25.week_3;
+
 public class Armor {
     private String body;
     private String head;

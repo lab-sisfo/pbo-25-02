@@ -1,3 +1,5 @@
+package pbo25.week_3;
+
 public class Main {
     public static void main(String[] args) {
         ShadowPower powerknight1 = new ShadowPower(30, 12.5);

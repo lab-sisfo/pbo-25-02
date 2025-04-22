@@ -1,4 +1,4 @@
-package login_app.models;
+package pbo25.week_4.login_app.models;
 
 public class User {
     private String username;

@@ -1,3 +1,6 @@
+package pbo25.week_2.Soal2;
+
+
 class Produk{//buatkan array
     private String id;
     private String nama;

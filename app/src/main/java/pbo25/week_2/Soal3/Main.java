@@ -1,3 +1,6 @@
+package pbo25.week_2.Soal3;
+
+
 class Cuboid{
     double height;
     double width;

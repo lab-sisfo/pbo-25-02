@@ -1,3 +1,6 @@
+package pbo25.week_2.Soal1;
+
+
 class Person {
     private String name;
     private int age;

@@ -1,5 +1,4 @@
-// package Tuprak 3;
-
+package pbo25.week_3;
 public class ShadowPower {
     private int darkness;
     private double shadowAura;
