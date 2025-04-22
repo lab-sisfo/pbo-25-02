@@ -1,3 +1,5 @@
+package pbo25.week_2;
+
 class Cuboid {
     double height;
     double widht; 
