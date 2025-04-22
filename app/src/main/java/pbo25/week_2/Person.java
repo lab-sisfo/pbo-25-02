@@ -1,3 +1,5 @@
+package pbo25.week_2;
+
 public class Person {
     String name;
     int age;
@@ -37,7 +39,7 @@ public class Person {
     public void data(){
         System.out.println("name: " + name + "\n");
         System.out.println("age: " + age + "\n");
-        System.out.println("gender: " + getGender() + );
+        System.out.println("gender: " + getGender());
     }
     public static void main(String[] args){
         Person person = new Person();

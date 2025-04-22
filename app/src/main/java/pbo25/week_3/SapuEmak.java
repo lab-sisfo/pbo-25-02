@@ -1,3 +1,5 @@
+package pbo25.week_3;
+
 public class SapuEmak {
     private String nama;
     private String sapu;

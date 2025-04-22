@@ -1,3 +1,5 @@
+package pbo25.week_2;
+
 public class Product {
     // Properti
     String id;
