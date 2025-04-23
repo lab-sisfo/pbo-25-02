@@ -1,4 +1,4 @@
-package utils;
+package pbo25.week_4.utils;
 
 public class StringUtils {
     /*
