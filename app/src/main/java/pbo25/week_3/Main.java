@@ -1,3 +1,5 @@
+package pbo25.week_3;
+
 public class Main {
     public static void main(String[] args) {
         PetShop pet1 = new PetShop("Kitty", "Kucing", "Putih", 50, "Gatri", "Mengkendek", "08123453922");

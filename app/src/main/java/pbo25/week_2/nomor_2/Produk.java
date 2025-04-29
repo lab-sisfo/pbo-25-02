@@ -1,3 +1,5 @@
+package pbo25.week_2.nomor_2;
+
 public class Produk {
     int produkId;
     String nama;
