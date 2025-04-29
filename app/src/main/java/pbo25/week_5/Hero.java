@@ -1,4 +1,4 @@
-package pbo25.wwk_5;
+package pbo25.week_5;
 
 public class Hero {
     protected String name;
