@@ -1,3 +1,5 @@
+package pbo25.week_2;
+
 class Alamat {
     String jalan;
     String kota;
@@ -26,7 +28,7 @@ class Mahasiswa {
     }
 }
 
-public class Main {
+public class AlamatMahasiswa {
     public static void main(String[] args) {
         Alamat alamat = new Alamat();
         alamat.jalan = "Tamalanrea Indah";
