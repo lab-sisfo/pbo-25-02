@@ -1,10 +1,10 @@
 package pbo25.week_4;
 
-import java.util.ArrayList;
 import java.util.Scanner;
-import login_app.models.Profile;
-import login_app.models.User;
-import login_app.utils.StringUtils;
+import pbo25.week_4.models.Profile;
+import pbo25.week_4.models.User;
+import pbo25.week_4.utils.StringUtils;
+import java.util.ArrayList;
 
 public class Main {
     private static ArrayList<User> listUser = new ArrayList<>();
@@ -95,7 +95,7 @@ public class Main {
     private static void showRegisterMenu() {
         System.out.println("-------------------------");
         System.out.println("REGISTER");
-    
+
         String username;
         // 4. Input ulang username kalau kosong atau duplikat
         do {
@@ -113,9 +113,10 @@ public class Main {
                     break;
                 }
             }
-            if (!taken) break;
+            if (!taken)
+                break;
         } while (true);
-    
+
         String password;
         // 5. Input ulang password kalau kosong atau < 8 karakter
         do {
@@ -129,12 +130,12 @@ public class Main {
                 break;
             }
         } while (true);
-    
+
         // Buat objek User
         User user = new User(username, password);
         // Buat objek Profile
         Profile profile = new Profile();
-    
+
         String fullName;
         // 6. Input ulang fullName kalau kosong
         do {
@@ -147,7 +148,7 @@ public class Main {
             }
         } while (true);
         profile.setFullName(fullName);
-    
+
         int age;
         // 7. Input ulang umur kalau bukan angka atau ≤ 0
         do {
@@ -158,7 +159,7 @@ public class Main {
                 continue;
             }
             age = sc.nextInt();
-            sc.nextLine(); 
+            sc.nextLine();
             if (age <= 0) {
                 System.out.println("Umur harus positif!");
             } else {
@@ -166,7 +167,7 @@ public class Main {
             }
         } while (true);
         profile.setAge(age);
-    
+
         String hobby;
         // 8. Input ulang hobby kalau kosong
         do {
@@ -179,18 +180,18 @@ public class Main {
             }
         } while (true);
         profile.setHobby(hobby);
-    
+
         // 9. Generate nickname via StringUtils
         profile.setNickName(StringUtils.generateNickName(fullName));
-    
+
         // Simpan user & profile
         listUser.add(user);
         listUserProfile.add(profile);
-    
+
         System.out.println("-------------------------");
         System.out.println("Berhasil Membuat User Baru!!");
         runApp();
-    }    
+    }
 
     private static void showDetailUser(Profile profile) {
         // Tampilkan semua data profile user yang login

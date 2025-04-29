@@ -2,34 +2,41 @@ package pbo25.week_2;
 
 import java.util.Scanner;
 
-public class nomor2 {
+public class Nomor2 {
     String ID;
     String nama;
     int stok;
     double harga;
-    
+
     public void setID(String ID) {
         this.ID = ID;
     }
-    public String getID(){
+
+    public String getID() {
         return ID;
     }
-    public void setNama(String nama){
+
+    public void setNama(String nama) {
         this.nama = nama;
     }
-    public String getNama(){
+
+    public String getNama() {
         return nama;
     }
-    public void setStok(int stok){
+
+    public void setStok(int stok) {
         this.stok = stok;
     }
-    public int getStok(){
+
+    public int getStok() {
         return stok;
     }
-    public void setHarga(double harga){
+
+    public void setHarga(double harga) {
         this.harga = harga;
     }
-    public double getHarga(){
+
+    public double getHarga() {
         return harga;
     }
 
@@ -37,7 +44,7 @@ public class nomor2 {
         return stok > 0;
     }
 
-    public void tampilkanInfo(){
+    public void tampilkanInfo() {
         System.out.println("ID Produk: " + ID);
         System.out.println("Nama Produk" + nama);
         System.out.println("Stok Produk: " + stok);
@@ -47,7 +54,7 @@ public class nomor2 {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        nomor2 produk = new nomor2();
+        Nomor2 produk = new Nomor2();
 
         System.out.println("Masukkan ID Produk: ");
         produk.setID(input.nextLine());

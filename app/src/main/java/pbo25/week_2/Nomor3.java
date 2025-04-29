@@ -2,7 +2,7 @@ package pbo25.week_2;
 
 class Cuboid {
     double height;
-    double widht; 
+    double widht;
     double length;
 
     double getVolume() {
@@ -10,7 +10,7 @@ class Cuboid {
     }
 }
 
-public class nomor3{
+public class Nomor3 {
     public static void main(String[] args) {
         Cuboid cuboid = new Cuboid();
         cuboid.height = 10;
