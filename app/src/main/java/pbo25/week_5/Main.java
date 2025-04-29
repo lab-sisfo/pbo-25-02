@@ -2,28 +2,6 @@ package pbo25.week_5;
 
 import java.util.Scanner;
 
-class Archer extends Hero {
-    public Archer(String name, int health, int attackPower) {
-        super(name, health, attackPower);
-    }
-}
-
-class Wizard extends Hero {
-    public Wizard(String name, int health, int attackPower) {
-        super(name, health, attackPower);
-    }
-}
-
-class Fighter extends Hero {
-    public Fighter(String name, int health, int attackPower) {
-        super(name, health, attackPower);
-    }
-
-    public void SerangLawan() {
-        this.Serang();
-    }
-}
-
 public class Main {
     public static void main(String[] args) {
         Archer archer = new Archer("Pemanah", 100, 15);
