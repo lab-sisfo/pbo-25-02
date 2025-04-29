@@ -1,3 +1,5 @@
+package pbo25.week_2;
+
 public class lab2no2 {
     private String id;
     private String nama;
@@ -10,7 +12,6 @@ public class lab2no2 {
         this.stok = stok;
         this.harga = harga;
     }
-
 
     public String getId() {
         return id;
@@ -58,9 +59,9 @@ public class lab2no2 {
 
     public static void main(String[] args) {
         lab2no2 produk1 = new lab2no2("P001", "Buku Tulis", 50, 12500.0);
-        
+
         produk1.tampilkanInfo();
-        
+
         System.out.println("\nApakah produk tersedia? " + produk1.isTersedia());
     }
 }

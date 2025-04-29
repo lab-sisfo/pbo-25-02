@@ -1,4 +1,4 @@
-package login_app.models;
+package pbo25.week_4.models;
 
 public class Profile {
     private String fullName;
@@ -6,7 +6,8 @@ public class Profile {
     private int age;
     private String hobby;
 
-    public Profile() {}
+    public Profile() {
+    }
 
     public String getFullName() {
         return fullName;
@@ -40,7 +41,7 @@ public class Profile {
     public void setHobby(String hobby) {
         this.hobby = hobby;
     }
-    
+
     private String generateNickName(String fullName) {
         if (fullName == null || fullName.isEmpty()) {
             return "";

@@ -1,9 +1,9 @@
-package login_app.utils;
+package pbo25.week_4.utils;
 
-import java.util.ArrayList;
 import java.util.Scanner;
-import login_app.models.Profile;
-import login_app.models.User;
+import pbo25.week_4.models.Profile;
+import pbo25.week_4.models.User;
+import java.util.ArrayList;
 
 public class Main {
     private static ArrayList<User> listUser = new ArrayList<>();
@@ -51,7 +51,7 @@ public class Main {
 
         String username = sc.nextLine();
         int userIndex = -1;
-        
+
         for (int i = 0; i < listUser.size(); i++) {
             if (listUser.get(i).getUsername().equals(username)) {
                 userIndex = i;
@@ -87,12 +87,12 @@ public class Main {
             System.out.println("Username");
             System.out.print("> ");
             username = sc.nextLine();
-            
+
             if (username.isEmpty()) {
                 System.out.println("Username tidak boleh kosong!");
                 continue;
             }
-            
+
             boolean usernameExists = false;
             for (User user : listUser) {
                 if (user.getUsername().equals(username)) {
@@ -100,7 +100,7 @@ public class Main {
                     break;
                 }
             }
-            
+
             if (usernameExists) {
                 System.out.println("Username sudah digunakan!");
             } else {
@@ -113,7 +113,7 @@ public class Main {
             System.out.println("Password (minimal 8 karakter)");
             System.out.print("> ");
             password = sc.nextLine();
-            
+
             if (password.isEmpty()) {
                 System.out.println("Password tidak boleh kosong!");
             } else if (password.length() < 8) {
@@ -131,7 +131,7 @@ public class Main {
             System.out.println("Nama Lengkap");
             System.out.print("> ");
             fullName = sc.nextLine();
-            
+
             if (fullName.isEmpty()) {
                 System.out.println("Nama lengkap tidak boleh kosong!");
             } else {
@@ -160,7 +160,7 @@ public class Main {
             System.out.println("Hobby");
             System.out.print("> ");
             hobby = sc.nextLine();
-            
+
             if (hobby.isEmpty()) {
                 System.out.println("Hobby tidak boleh kosong!");
             } else {
