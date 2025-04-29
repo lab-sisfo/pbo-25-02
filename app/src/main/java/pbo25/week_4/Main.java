@@ -28,6 +28,7 @@ public class Main {
         // Menginput pilihan menu
         int selectMenu = sc.nextInt();
         sc.nextLine();
+
         switch (selectMenu) {
             case 1:
                 // Membuka Halaman Login
