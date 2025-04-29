@@ -1,10 +1,10 @@
 package pbo25.week_4.login_app;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 import pbo25.week_4.login_app.models.Profile;
 import pbo25.week_4.login_app.models.User;
 import pbo25.week_4.login_app.utils.StringUtils;
+import java.util.ArrayList;
 
 public class Main {
     private static ArrayList<User> listUser = new ArrayList<>();
@@ -12,13 +12,14 @@ public class Main {
     private static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        //Memanggil method runApp() untuk menampilkan menu awal aplikasi
+        // Memanggil method runApp() untuk menampilkan menu awal aplikasi
         // dan meminta input dari pengguna
+        // System.out.println("Test");
         runApp();
     }
 
     private static void runApp() {
-        //Menampilkan menu awal aplikasi
+        // Menampilkan menu awal aplikasi
         System.out.println("-------------------------");
         System.out.println("Aplikasi Login Sederhana");
         System.out.println("-------------------------");
@@ -26,7 +27,7 @@ public class Main {
         System.out.println("2. Register");
         System.out.print("> ");
 
-//Meminta input dari pengguna untuk memilih menu
+        // Meminta input dari pengguna untuk memilih menu
         // dan menyimpannya dalam variabel selectMenu
         int selectMenu = sc.nextInt();
         sc.nextLine();
@@ -51,7 +52,7 @@ public class Main {
 
         int userIndex = -1;
         for (int i = 0; i < listUser.size(); i++) {
-            if (listUser.get(i).getUsername().equals(username)) {//TODO
+            if (listUser.get(i).getUsername().equals(username)) {// TODO
                 userIndex = i;
                 break;
             }
