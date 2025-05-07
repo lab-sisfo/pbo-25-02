@@ -11,6 +11,6 @@ public class Hero {
     }
 
     public void Serang() {
-        System.out.printf("%s menyerang dengan kekuatan %s!", this.name, this.attackPower);
+        System.out.printf("%s menyerang dengan kekuatan %s! \n", this.name, this.attackPower);
     }
 }
