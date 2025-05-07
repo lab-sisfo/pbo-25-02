@@ -105,7 +105,7 @@ public class Mobil extends Kendaraan implements IBergerak, IServiceable {
     @Override
     public Date getWaktuServisBerikutnya() {
         // Memeriksa kondisi mobil sebelum menghitung waktu servis berikutnya
-        if (kondisiMobil > 90) {
+        if (kondisiMobil >= 90) {
             System.out.println("Servis tidak diperlukan. Kondisi Mobil masih baik: " + kondisiMobil + "%");
             return null;
         } else {

@@ -103,7 +103,7 @@ public class Motor extends Kendaraan implements IBergerak, IServiceable {
             tanggalServisTerakhir = new Date();
             System.out.println("Servis selesai. Kondisi motor sekarang: " + kondisiMotor + "%");
         } else {
-            System.out.println("Sepeda masih dalam kondisi baik, tidak perlu melakukan servis. Kondisi motor: "
+            System.out.println("Motor masih dalam kondisi baik, tidak perlu melakukan servis. Kondisi motor: "
                     + kondisiMotor + "%");
         }
     }
@@ -111,7 +111,7 @@ public class Motor extends Kendaraan implements IBergerak, IServiceable {
     @Override
     public Date getWaktuServisBerikutnya() {
         // Memeriksa kondisi motor sebelum menghitung waktu servis berikutnya
-        if (kondisiMotor > 90) {
+        if (kondisiMotor >= 90) {
             System.out.println("Servis tidak diperlukan. Kondisi motor masih baik: " + kondisiMotor + "%");
             return null;
         } else {

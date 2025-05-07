@@ -82,4 +82,38 @@ public class Kereta extends Kendaraan implements IBergerak {
             System.out.println("Kecepatan tidak valid. Kecepatan harus antara 0-200 km/jam");
         }
     }
+
+    // setters and getters
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public String getNomorKereta() {
+        return nomorKereta;
+    }
+
+    public void setNomorKereta(String nomorKereta) {
+        this.nomorKereta = nomorKereta;
+    }
+
+    public double getJarakPerjalanan() {
+        return jarakPerjalanan;
+    }
+
+    public void setJarakPerjalanan(double jarakPerjalanan) {
+        this.jarakPerjalanan = jarakPerjalanan;
+    }
+
+    public String getJenisKereta() {
+        return jenisKereta;
+    }
+
+    public void setJenisKereta(String jenisKereta) {
+        this.jenisKereta = jenisKereta;
+    }
+
 }

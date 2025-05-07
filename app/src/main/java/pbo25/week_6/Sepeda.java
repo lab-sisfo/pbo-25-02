@@ -26,6 +26,7 @@ public class Sepeda extends Kendaraan implements IBergerak, IServiceable {
     public void setTipeKendaraan(String tipe) {
         this.tipeKendaraan = tipe;
     }
+
     @Override
     public String getTipeKendaraan() {
         return tipeKendaraan;
@@ -104,7 +105,7 @@ public class Sepeda extends Kendaraan implements IBergerak, IServiceable {
     @Override
     public Date getWaktuServisBerikutnya() {
         // Memeriksa kondisi sepeda sebelum menghitung waktu servis berikutnya
-        if (kondisiSepeda > 90) {
+        if (kondisiSepeda >= 90) {
             System.out.println("Servis tidak diperlukan. Kondisi sepeda masih baik: " + kondisiSepeda + "%");
             return null;
         } else {
