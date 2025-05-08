@@ -162,7 +162,7 @@ public class Main {
 
             System.out.println("Pajak: Rp " + mobil.hitungPajak());
 
-            // Menggunakan motor
+            // Menggunakan mobil
             mobil.mulai();
             System.out.print("Masukkan kecepatan baru: ");
             double kecepatanBaruMobil = scanner.nextDouble();
