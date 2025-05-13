@@ -12,6 +12,7 @@ abstract class Kendaraan{
     public Kendaraan(String merk, String model){
         this.merk = merk;
         this.model = model;
+        this.id = "kendaraan-" + (int)(Math.random() * 10000); // ID acak untuk kendaraan
     }
     
     public String getId() {
@@ -20,6 +21,9 @@ abstract class Kendaraan{
     
     public String getModel() {
         return model;
+    }
+    public String getMerk() {
+        return merk;
     }
     
     public int getTahunProduksi() {

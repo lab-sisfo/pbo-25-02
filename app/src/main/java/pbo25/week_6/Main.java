@@ -1,4 +1,4 @@
-package pbo25.week_6;
+package pbo25.week_6;   
 
 import java.text.SimpleDateFormat;
 
@@ -13,6 +13,7 @@ public class Main {
         mobil.setKapasitasMesin(1500);
         mobil.setJumlahKursi(7);
         mobil.setBahanBakar("Bensin");
+        System.out.println("Merk Mobil: " + mobil.getMerk());
         mobil.mulai();
         mobil.setKecepatan(60);
         mobil.hitungPajak();
@@ -28,6 +29,7 @@ public class Main {
         motor.setJenisMotor("Sport");
         motor.setKapasitasTangki(12);
         motor.setTipeSuspensi("Upside-down");
+        System.out.println("Merk Motor: " + motor.getMerk());
         motor.mulai();
         motor.setKecepatan(80);
         motor.hitungPajak();
@@ -43,6 +45,7 @@ public class Main {
         sepeda.setJenisSepeda("Gunung");
         sepeda.setJumlahGear(21);
         sepeda.setUkuranRoda(27);
+        System.out.println("Merk Sepeda: " + sepeda.getMerk());
         sepeda.mulai();
         sepeda.setKecepatan(25);
         sepeda.hitungPajak();
@@ -57,6 +60,7 @@ public class Main {
         SepedaListrik sepedaListrik = new SepedaListrik("Xiaomi", "Himo C26");
         sepedaListrik.setKapasitasBaterai(480); // dalam Wh
         sepedaListrik.setDayaMotor(250); // dalam Watt
+        System.out.println("Merk Sepeda Listrik: " + sepedaListrik.getMerk());
         sepedaListrik.isiBaterai();
         sepedaListrik.mulai();
         sepedaListrik.setKecepatan(32);

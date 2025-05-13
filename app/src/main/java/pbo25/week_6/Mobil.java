@@ -8,8 +8,8 @@ import java.util.Locale;
 public class Mobil extends Kendaraan implements IBergerak, IServiceable {
     private int jumlahPintu;
     private double kapasitasMesin;
-    private int jumlahKursi; // Ditambahkan dari kodeku
-    private String bahanBakar; // Ditambahkan dari kodeku
+    private int jumlahKursi; // Ditambahkan 
+    private String bahanBakar; // Ditambahkan 
     private boolean mulai;
     private boolean berhenti;
 
