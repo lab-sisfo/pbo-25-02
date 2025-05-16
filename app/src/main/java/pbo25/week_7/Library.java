@@ -3,9 +3,9 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 public class Library {
-    private List<LibraryItem> items;
-    private List<Member> members;
-    private LibraryLogger logger;
+    List<LibraryItem> items;
+    List<Member> members;
+    LibraryLogger logger;
 
     public Library() {
         items = new ArrayList<>();
@@ -20,24 +20,9 @@ public class Library {
 
     public LibraryItem findItemById(int itemId) {
         return items.stream()
-            .filter(item -> item.getItemId() == itemId)
-            .findFirst()
-            .orElseThrow(() -> new NoSuchElementException("Item tidak ditemukan."));
-    }
-
-    public String getLibraryStatus() {
-        StringBuilder sb = new StringBuilder();
-        for (LibraryItem item : items) {
-            sb.append(item.getDescription())
-              .append(" - ")
-              .append(item.isBorrowed() ? "Dipinjam" : "Tersedia")
-              .append("\n");
-        }
-        return sb.toString();
-    }
-
-    public String getAllLogs() {
-        return logger.getLogs();
+                .filter(item -> item.getItemId() == itemId)
+                .findFirst()
+                .orElseThrow(() -> new NoSuchElementException("Item tidak ditemukan."));
     }
 
     public void addMember(Member member) {
@@ -46,5 +31,22 @@ public class Library {
 
     public LibraryLogger getLogger() {
         return logger;
+    }
+
+    public String getLibraryStatus() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("+---------+--------------------+-----------+\n");
+        sb.append("| ID Item | Judul              | Status    |\n");
+        sb.append("+---------+--------------------+-----------+\n");
+        for (LibraryItem item : items) {
+            String status = item.isBorrowed() ? "Dipinjam" : "Tersedia";
+            sb.append(String.format("| %-7d | %-18s | %-9s |\n", item.getItemId(), item.getTitle(), status));
+        }
+        sb.append("+---------+--------------------+-----------+");
+        return sb.toString();
+    }
+
+    public String getAllLogs() {
+        return logger.getLogs();
     }
 }

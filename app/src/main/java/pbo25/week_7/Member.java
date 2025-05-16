@@ -12,6 +12,14 @@ public class Member {
         this.borrowedItems = new ArrayList<>();
     }
 
+    public int getMemberId() {
+        return memberId;
+    }
+
+    public List<LibraryItem> getBorrowedItems() {
+        return borrowedItems;
+    }
+
     public String borrow(LibraryItem item, int days) {
         if (item.isBorrowed()) {
             throw new IllegalStateException("Item tidak tersedia.");
@@ -31,7 +39,7 @@ public class Member {
         return "Item " + item.getTitle() + " berhasil dikembalikan dengan denda: Rp " + String.format("%,.0f", fine);
     }
 
-    public void getBorrowedItems() {
+    public void displayBorrowedItems() {
         if (borrowedItems.isEmpty()) {
             System.out.println("Tidak ada item yang dipinjam.");
         } else {
