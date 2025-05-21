@@ -1,4 +1,5 @@
 package pbo25.week_7;
+
 import java.util.*;
 
 public class Library {
@@ -12,20 +13,23 @@ public class Library {
     }
 
     public LibraryItem findItemById(int itemId) {
-        return items.stream()
-            .filter(item -> item.itemId == itemId)
-            .findFirst()
-            .orElseThrow(() -> new NoSuchElementException("Item tidak ditemukan."));
-    }
-
-    public String getLibraryStatus() {
-        StringBuilder status = new StringBuilder();
         for (LibraryItem item : items) {
-            String kondisi = item.isBorrowed() ? "Dipinjam" : "Tersedia";
-            status.append(item.getDescription()).append(" - ").append(kondisi).append("\n");
+            if (item.getItemId() == itemId) return item;
         }
-        return status.toString();
+        throw new NoSuchElementException("Item tidak ditemukan.");
     }
+    public String getLibraryStatus() {
+    StringBuilder status = new StringBuilder();
+    status.append("+-----+---------+----------+\n");
+    status.append("| ID  | Judul   | Status   |\n");
+    status.append("+-----+---------+----------+\n");
+    for (LibraryItem item : items) {
+        String kondisi = item.isBorrowed() ? "Dipinjam" : "Tersedia";
+        status.append(String.format("| %-3d | %-7s | %-8s |\n", item.getItemId(), item.getTitle(), kondisi));
+    }
+    status.append("+-----+---------+----------+");
+    return status.toString();
+}
 
     public String getAllLogs() {
         return logger.getLogs();
@@ -36,10 +40,12 @@ public class Library {
     }
 
     public Member findMemberById(int id) {
-        return members.stream()
-            .filter(m -> m.memberId == id)
-            .findFirst()
-            .orElseThrow(() -> new NoSuchElementException("Member tidak ditemukan."));
+        for (Member m : members) {
+            if (m.getMemberId() == id) {
+                return m;
+            }
+        }
+    throw new NoSuchElementException("Member tidak ditemukan.");
     }
 
     public LibraryLogger getLogger() {

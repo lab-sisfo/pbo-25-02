@@ -1,4 +1,5 @@
 package pbo25.week_7;
+
 import java.util.Scanner;
 
 public class LibraryCLI {
@@ -6,7 +7,7 @@ public class LibraryCLI {
         Library library = new Library();
         Scanner scanner = new Scanner(System.in);
 
-        library.addItem(new Book("Laskar Pelangi", 1, "Andrea Hirata"));
+        library.addItem(new Book("Harry Potter", 1, "JK Rowling"));
         library.addItem(new DVD("Avengers", 2, 120));
         Member member = new Member("Naailah", 101);
         library.addMember(member);

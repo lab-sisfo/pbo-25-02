@@ -1,9 +1,10 @@
 package pbo25.week_7;
+
 import java.util.*;
 
 public class Member {
     private String name;
-    int memberId;
+    private int memberId;
     private List<LibraryItem> borrowedItems = new ArrayList<>();
 
     public Member(String name, int memberId) {
@@ -26,17 +27,27 @@ public class Member {
         return "Item " + item.getTitle() + " berhasil dikembalikan dengan denda: Rp " + String.format("%,.0f", fine);
     }
 
-    public void getBorrowedItems() {
-        if (borrowedItems.isEmpty()) {
-            System.out.println("Tidak ada item yang dipinjam.");
-        } else {
-            for (LibraryItem item : borrowedItems) {
-                System.out.println(item.getDescription());
-            }
+  public void getBorrowedItems() {
+    if (borrowedItems.isEmpty()) {
+        System.out.println("Tidak ada item yang dipinjam.");
+    } else {
+        System.out.println("+-----+---------+");
+        System.out.println("| ID  | Judul   |");
+        System.out.println("+-----+---------+");
+        for (LibraryItem item : borrowedItems) {
+            System.out.printf("| %-3d | %-7s |\n", item.getItemId(), item.getTitle());
         }
+        System.out.println("+-----+---------+");
     }
+}
+
 
     public String getName() {
         return name;
     }
+
+    public int getMemberId() {
+    return memberId;
+    }
+
 }

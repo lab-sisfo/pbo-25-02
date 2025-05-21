@@ -27,4 +27,9 @@ public abstract class LibraryItem {
     public String getTitle() {
         return title;
     }
+
+    public int getItemId() {
+        return itemId;
+}
+
 }
