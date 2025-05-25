@@ -2,9 +2,9 @@ package pbo25.week_4;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import pbo25.week_4.models.Profile;
-import pbo25.week_4.models.User;
-import pbo25.week_4.utils.StringUtils;
+import login_app.models.Profile;
+import login_app.models.User;
+import login_app.utils.StringUtils;
 
 public class Main {
     private static ArrayList<User> listUser = new ArrayList<>();
@@ -12,7 +12,6 @@ public class Main {
     private static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        // Memanggil method runApp();
         runApp();
     }
 
@@ -25,7 +24,6 @@ public class Main {
         System.out.println("2. Register");
         System.out.print("> ");
 
-        // Menginput pilihan menu
         int selectMenu = sc.nextInt();
         sc.nextLine();
         switch (selectMenu) {
@@ -36,8 +34,9 @@ public class Main {
             case 2:
                 // Membuka Halaman Register
                 showRegisterMenu();
+                break;
             default:
-                // Mengulang Pemanggilan Menu Utama
+                System.out.println("Pilihan tidak valid, silakan coba lagi.");
                 runApp();
         }
     }
@@ -46,117 +45,161 @@ public class Main {
         // Halaman Login
         System.out.println("-------------------------");
         System.out.println("Login");
-        // Menginput Username dan Menyimpannya di attribute username;
-        System.out.println("Masukkan Username");
-        System.out.print("> ");
 
-        String username = sc.next();
-        // Membuat variabel userIndex yang mana nanti akan menampung index dari user
         int userIndex = -1;
-        for (int i = 0; i < listUser.size(); i++) {
-            /*
-             * TODO
-             * Buatlah sebuah perkondisian (IF) yang akan
-             * Mengecek apakah user index ke i dari listUser memiliki username yang sama
-             * dengan username yang
-             * diinput.
-             * Jika ada ganti userIndex dengan Index dari User Tersebut, kemudian hentikan
-             * perulangan
-             */
-        }
-        // Saat userIndex tidak sama dengan -1 atau userIndexnya ditemukan
-        if (userIndex != -1) {
-            // Menginput Password
-            System.out.println("Password");
-            System.out.print("> ");
-            String password = sc.next();
+        String username;
 
-            /*
-             * TODO
-             * Mengecek apakah password dari User yang login berdasarkan username
-             * sama dengan password yang diinput sebelumnya, kemudian simpan
-             * hasilnya di variabel isPasswordMatch
-             */
-
-            // Jika passwordnya sama maka berhasil login
-            if (isPasswordMatch) {
-                System.out.println("Berhasil Login");
-                /*
-                 * TODO
-                 * panggil method showDetailUser dan kirimkan data Profile User yang login
-                 * 
-                 */
-                System.exit(0);
-            } else {
-                // saat password salah akan menampikan password salah
-                System.out.println("Password Salah");
+        // 1. Input ulang kalau kosong & cek username terdaftar
+        do {
+            System.out.print("Masukkan Username: ");
+            username = sc.next();
+            if (username.trim().isEmpty()) {
+                System.out.println("Username tidak boleh kosong!");
+                continue;
             }
-        }
+            userIndex = -1;
+            for (int i = 0; i < listUser.size(); i++) {
+                if (listUser.get(i).getUsername().equals(username)) {
+                    userIndex = i;
+                    break;
+                }
+            }
+            if (userIndex == -1) {
+                System.out.println("Username tidak ditemukan, coba lagi.");
+            }
+        } while (userIndex == -1);
+
+        String password;
+
+        // 2. Input ulang password kalau kosong atau salah
+        do {
+            System.out.print("Password: ");
+            password = sc.next();
+            if (password.trim().isEmpty()) {
+                System.out.println("Password tidak boleh kosong!");
+                continue;
+            }
+            if (!listUser.get(userIndex).getPassword().equals(password)) {
+                System.out.println("Password salah, coba lagi.");
+            } else {
+                break;
+            }
+        } while (true);
+
+        // 3. Berhasil login
+        System.out.println("Berhasil Login");
+        showDetailUser(listUserProfile.get(userIndex));
+        System.exit(0);
     }
 
     private static void showRegisterMenu() {
         System.out.println("-------------------------");
         System.out.println("REGISTER");
-
-        // Menginput username dan password
-        System.out.println("Username");
-        System.out.print("> ");
-        String username = sc.nextLine();
-        System.out.println("Password");
-        System.out.print("> ");
-        String password = sc.nextLine();
-        /*
-         * TODO
-         * Buatlah atau Instance objek User baru, dan tambahkan
-         * username dan password yang diinput sebelumnya secara langsung
-         * saat instance User
-         */
-
-        /*
-         * TODO
-         * Buatlah atau Instance objek Profile baru
-         */
+    
+        String username;
+        // 4. Input ulang username kalau kosong atau duplikat
+        do {
+            System.out.print("Username: ");
+            username = sc.nextLine();
+            if (username.trim().isEmpty()) {
+                System.out.println("Username tidak boleh kosong!");
+                continue;
+            }
+            boolean taken = false;
+            for (User u : listUser) {
+                if (u.getUsername().equals(username)) {
+                    System.out.println("Username sudah digunakan!");
+                    taken = true;
+                    break;
+                }
+            }
+            if (!taken) break;
+        } while (true);
+    
+        String password;
+        // 5. Input ulang password kalau kosong atau < 8 karakter
+        do {
+            System.out.print("Password (min 8 karakter): ");
+            password = sc.nextLine();
+            if (password.trim().isEmpty()) {
+                System.out.println("Password tidak boleh kosong!");
+            } else if (password.length() < 8) {
+                System.out.println("Password terlalu pendek!");
+            } else {
+                break;
+            }
+        } while (true);
+    
+        // Buat objek User
+        User user = new User(username, password);
+        // Buat objek Profile
         Profile profile = new Profile();
-
-        // Menginput Data Profile
-        System.out.println("Nama Lengkap");
-        System.out.print("> ");
-        String fullName = sc.nextLine();
-        System.out.println("Umur");
-        System.out.print("> ");
-        int age = sc.nextInt();
-        sc.nextLine();
-        System.out.println("Hobby");
-        System.out.print("> ");
-        String hobby = sc.nextLine();
-
-        /*
-         * TODO
-         * Berikan nilai fullName, age, dan hobby ke objek profile yang telah
-         * di Instance sebelumnya. Nilai ini diperoleh dari data profile yang
-         * diinput sebelumnya
-         */
-
-        /*
-         * TODO
-         * Berikan nilai nickName ke objek profile,
-         * Nilai ini diperoleh menggunakan static method yang dibuat di class
-         * StringUtils, dengan mengirimkan fullName yang diinput sebelumnya
-         */
-
-        // Menambahkan user yang dibuat ke list user
+    
+        String fullName;
+        // 6. Input ulang fullName kalau kosong
+        do {
+            System.out.print("Nama Lengkap: ");
+            fullName = sc.nextLine();
+            if (fullName.trim().isEmpty()) {
+                System.out.println("Nama lengkap tidak boleh kosong!");
+            } else {
+                break;
+            }
+        } while (true);
+        profile.setFullName(fullName);
+    
+        int age;
+        // 7. Input ulang umur kalau bukan angka atau ≤ 0
+        do {
+            System.out.print("Umur: ");
+            if (!sc.hasNextInt()) {
+                System.out.println("Masukkan angka untuk umur!");
+                sc.nextLine(); // Clear buffer
+                continue;
+            }
+            age = sc.nextInt();
+            sc.nextLine(); 
+            if (age <= 0) {
+                System.out.println("Umur harus positif!");
+            } else {
+                break;
+            }
+        } while (true);
+        profile.setAge(age);
+    
+        String hobby;
+        // 8. Input ulang hobby kalau kosong
+        do {
+            System.out.print("Hobby: ");
+            hobby = sc.nextLine();
+            if (hobby.trim().isEmpty()) {
+                System.out.println("Hobby tidak boleh kosong!");
+            } else {
+                break;
+            }
+        } while (true);
+        profile.setHobby(hobby);
+    
+        // 9. Generate nickname via StringUtils
+        profile.setNickName(StringUtils.generateNickName(fullName));
+    
+        // Simpan user & profile
         listUser.add(user);
-        // Menambahkan profile user yang dibuat ke list profile
         listUserProfile.add(profile);
+    
         System.out.println("-------------------------");
         System.out.println("Berhasil Membuat User Baru!!");
         runApp();
-    }
+    }    
 
     private static void showDetailUser(Profile profile) {
-        /*
-         * TODO *
-         * Tampilkan semua data profile user yang login
-         */
+        // Tampilkan semua data profile user yang login
+        System.out.println("-------------------------");
+        System.out.println("Data Profil Pengguna:");
+        System.out.println("Nama Lengkap : " + profile.getFullName());
+        System.out.println("Nick Name    : " + profile.getNickName());
+        System.out.println("Umur         : " + profile.getAge());
+        System.out.println("Hobby        : " + profile.getHobby());
+        System.out.println("-------------------------");
     }
 }
