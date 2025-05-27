@@ -35,7 +35,7 @@ public class Library {
         status.append("+----------+----------------+-------------+\n");
         status.append("| ID Item  |      Judul     |   Status    |\n");
         status.append("+----------+----------------+-------------+\n");
-        
+
         for (LibraryItem item : items) {
             status.append(String.format("| %-8d | %-14s | %-11s |\n",
                     item.getItemId(),
