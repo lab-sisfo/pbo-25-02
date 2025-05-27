@@ -53,15 +53,14 @@ public class TypeRacer {
         // {posisi}. {nama} = {waktu penyelesaian dalam detik} detik
         for (int i = 0; i < rareStanding.size(); i++) {
             Result result = rareStanding.get(i);
-            System.out.println((i + 1) + ". " + result.getName() +
-                    " = " + result.getFinishTime() + " detik");
+            System.out.println((i + 1) + ". " + result.getName() + " = " + result.getFinishTime() + " detik");
         }
     }
 
     public void startRace() {
         // TODO (6)
         // Jalankan kompetisi untuk tiap kontestan
-        raceStartTime = System.currentTimeMillis();
+        raceStartTime = System.currentTimeMillis(); // waktu balapan dimulai
         // Start semua typer thread
         for (Typer typer : rareContestant) {
             typer.start();
@@ -107,15 +106,5 @@ public class TypeRacer {
 
         // Tampilkan klasemen akhir
         printRaceStanding();
-    }
-
-    // Method helper untuk menambahkan kontestan
-    public void addContestant(Typer typer) {
-        rareContestant.add(typer);
-    }
-
-    // Method helper untuk mengecek apakah semua typer sudah selesai
-    public boolean isRaceFinished() {
-        return rareStanding.size() >= rareContestant.size();
     }
 }

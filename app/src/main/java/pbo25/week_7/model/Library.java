@@ -61,13 +61,13 @@ public class Library {
     }
 
     public String getBorrowedItemsForMember(int memberId) {
-    for (Member member : members) {
-        if (member.getMemberId() == memberId) {
-            return member.getBorrowedItems();
+        for (Member member : members) {
+            if (member.getMemberId() == memberId) {
+                return member.getBorrowedItems();
+            }
         }
+        return "Member tidak ditemukan.";
     }
-    return "Member tidak ditemukan.";
-}
 
     public String isborrowItem(LibraryItem item, int memberId, int days) {
         for (Member member : members) {
