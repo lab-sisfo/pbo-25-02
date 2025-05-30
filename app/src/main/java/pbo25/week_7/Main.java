@@ -55,7 +55,7 @@ public class Main {
                         System.out.print("Masukkan durasi DVD (menit): ");
                         int durasi = scanner.nextInt();
                         scanner.nextLine();
-
+                        
                         LibraryItem itemd = new Dvd(juduld, idd, durasi);
                         library.addItem(itemd);
                         System.out.println("DVD berhasil ditambahkan.");
@@ -143,7 +143,7 @@ public class Main {
 
                     try {
                         Member anggota = library.findMemberById(idAnggota);
-                        anggota.getBorrowwedItem(); // Akan menampilkan daftar item yang dipinjam
+                        anggota.getBorrowwedItems(); // Akan menampilkan daftar item yang dipinjam
                     } catch (Exception e) {
                         System.out.println("Gagal menampilkan item yang dipinjam: " + e.getMessage());
                     }
@@ -156,6 +156,7 @@ public class Main {
                 default:
                     System.out.println("Pilihan tidak valid.");
             }
+            scanner.close();
         }
     }
 }

@@ -38,9 +38,7 @@ public class Member {
 
     return "Item [" + item.title + "] berhasil dikembalikan dengan denda: Rp " + String.format("%,.2f", fine);
 }
-
-
-    public void getBorrowwedItem(){
+    public void getBorrowwedItems(){
         if (borrowedItems.isEmpty()){
             throw new IllegalArgumentException("Tidak ada item yang dipinjam");
         }

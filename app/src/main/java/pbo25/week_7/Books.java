@@ -28,6 +28,6 @@ public class Books extends LibraryItem {
 
     @Override
     public double calculateFine(int daysLate) {
-        return daysLate * 1000; 
+        return daysLate * 10000;
     }
 }

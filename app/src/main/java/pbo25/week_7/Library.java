@@ -47,7 +47,7 @@ public class Library {
         sb.append("+------+---------+-----------+\n");
         sb.append("| ID   | Judul   | Status    |\n");
         sb.append("+------+---------+-----------+\n");
-
+//na cek katanya 
         for (LibraryItem item : items) {
             sb.append(String.format("| %-4d | %-7s | %-9s |\n",
                     item.itemID, item.title, item.isBorrowed ? "Dipinjam" : "Tersedia"));

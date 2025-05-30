@@ -23,7 +23,7 @@ public class LibraryLogger {
         logs.clear();
     }
 
-     public String logAddItem(String title, int itemID, String itemType) {
+    public String logAddItem(String title, int itemID, String itemType) {
         return logActivity("Item ditambahkan:  \"" + title + "\" (ID: " + itemID + ")");
     }
 
