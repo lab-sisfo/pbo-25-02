@@ -1,8 +1,8 @@
 package pbo25.week_5;
 
 public class Hero {
-    String name;
-    int health, attackPower;
+    public String name;
+    public int health, attackPower;
 
     public Hero(String name, int health, int attackPower) {
         this.name = name;
@@ -11,6 +11,6 @@ public class Hero {
     }
 
     public void Serang() {
-        System.out.printf("%s menyerang dengan kekuatan %s!", this.name, this.attackPower);
+        System.out.printf("%s menyerang dengan kekuatan %s! \n", this.name, this.attackPower);
     }
 }

@@ -1,6 +1,6 @@
 package pbo25.week_5;
 
-class Fighter extends Hero {
+public class Fighter extends Hero {
     public Fighter(String name, int health, int attackPower) {
         super(name, health, attackPower);
     }
